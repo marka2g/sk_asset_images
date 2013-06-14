@@ -62,3 +62,21 @@ A web interface is not required, but if one is built it will certainly be taken 
 #### File uploads, management, and processing
 
 Use [CarrierWave](https://github.com/carrierwaveuploader/carrierwave/) for managing the images. It is sufficiently powerful and flexible to meet all of the requirements. Image manipulation can be done with an ImageMagick library such as [RMagick](https://github.com/carrierwaveuploader/carrierwave/blob/master/README.md#using-rmagick) or [MiniMagick](https://github.com/carrierwaveuploader/carrierwave/blob/master/README.md#using-minimagick).
+
+## The App
+
+### Getting started
+
+At [https://github.com/jpregracke/sk_asset_images](https://github.com/jpregracke/sk_asset_images) is a stub repository with the necessary gems (including MiniMagick) and the two basic primary models, Celeb and Title. It also includes some sample data in the seed file (two celebs and two titles) and sample source images in `test/fixtures` (one for each primary resource). Use this app as a starting point.
+
+### Testing
+
+Use any testing framework you wish for.
+
+### Submitting
+
+Send me a link to your code when you're done.
+
+### Questions
+
+Feel free to contact me with any questions that you have.
