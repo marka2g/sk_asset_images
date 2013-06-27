@@ -1,4 +1,4 @@
 SkAssetImages::Application.routes.draw do
-  root to: 'titless#index'
+  root to: 'titles#index'
   resources :titles
 end
