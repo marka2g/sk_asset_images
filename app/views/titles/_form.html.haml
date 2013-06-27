@@ -1,0 +1,19 @@
+= form_for @title do |f|
+  - if @title.errors.any?
+    .error_messages
+      %h2
+        = pluralize(@title.errors.count, "error")
+        prohibited this title from being saved:
+      %ul
+        - @title.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :name
+    %br/
+    = f.text_field :name
+  .field
+    = f.label :asset_image
+    %br/
+    = f.file_field :asset_image
+  .actions
+    = f.submit
