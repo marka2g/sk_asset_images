@@ -29,8 +29,8 @@ class TitlesController < ApplicationController
   end
 
   def update
-# binding.pry
     @title = Title.find(params[:id])
+binding.pry
     if @title.update_attributes(params[:title])
       if params[:title][:asset_image].present?
         render :crop
