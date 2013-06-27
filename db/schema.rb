@@ -15,18 +15,18 @@ ActiveRecord::Schema.define(:version => 20130613195208) do
 
   create_table "celebs", :force => true do |t|
     t.string   "name"
-    t.string   "asset_images"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.string   "asset_image"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   add_index "celebs", ["name"], :name => "index_celebs_on_name", :unique => true
 
   create_table "titles", :force => true do |t|
     t.string   "name"
-    t.string   "asset_images"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.string   "asset_image"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   add_index "titles", ["name"], :name => "index_titles_on_name", :unique => true
