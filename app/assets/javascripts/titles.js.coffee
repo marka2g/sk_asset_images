@@ -8,13 +8,11 @@ class AssetImageCropper
   constructor: ->
     $('#cropbox').Jcrop
       aspectRatio: 1
-      setSelect: [200, 200, 1200, 2400]
-      bgColor: 'grey'
+      setSelect: [0, 0, 600, 600]
       onSelect: @update
       onChange: @update
 
   update: (coords) =>
-    console.log(coords)
     $('#title_crop_x').val(coords.x)
     $('#title_crop_y').val(coords.y)
     $('#title_crop_w').val(coords.w)
