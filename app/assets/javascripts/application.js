@@ -12,5 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
 //= require jquery.Jcrop
+//= require_tree .
