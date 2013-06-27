@@ -1488,11 +1488,11 @@
       }
     };
 
-    if ($.browser.msie) {
-      $div.bind('selectstart', function () {
-        return false;
-      });
-    }
+    // if ($.browser.msie) {
+    //   $div.bind('selectstart', function () {
+    //     return false;
+    //   });
+    // }
 
     $origimg.data('Jcrop', api);
     return api;
