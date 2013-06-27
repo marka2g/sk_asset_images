@@ -67,7 +67,7 @@ Use [CarrierWave](https://github.com/carrierwaveuploader/carrierwave/) for manag
 
 ### Getting started
 
-At [https://github.com/jpregracke/sk_asset_images](https://github.com/jpregracke/sk_asset_images) is a stub repository with the necessary gems (including MiniMagick) and the two basic primary models, Celeb and Title. It also includes some sample data in the seed file (two celebs and two titles) and sample source images in `test/fixtures` (one for each primary resource). Use this app as a starting point.
+At [https://github.com/marka2g/sk_asset_images](https://github.com/marka2g/sk_asset_images) is a fork of jpregracke stub repository with the necessary gems (including MiniMagick) and the two basic primary models, Celeb and Title. It also includes some sample data in the seed file (two celebs and two titles) and sample source images in `test/fixtures` (one for each primary resource). Use this app as a starting point.
 
 ### Testing
 
