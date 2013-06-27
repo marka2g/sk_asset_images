@@ -1,0 +1,9 @@
+<h1>Titles</h1>
+
+<ul>
+<% @titles.each do |title| %>
+  <li><%= link_to title.name, title %></li>
+<% end %>
+</ul>
+
+<p><%= link_to "New User", new_title_path %></p>
