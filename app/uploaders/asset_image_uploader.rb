@@ -12,7 +12,7 @@ class AssetImageUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-    process :crop
+    # process :crop
     resize_to_fill(100, 100)
   end
 

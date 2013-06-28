@@ -2,7 +2,7 @@
 
 <p>
   <b>Image:</b>
-  <%= @image.asset_image %>
+  <%= image_tag @image.asset_image.url(:thumb) %>
 </p>
 
 
