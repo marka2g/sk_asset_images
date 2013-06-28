@@ -1,3 +1,8 @@
+## Instructions
+* rake db:migrate
+* rake db:seed
+* play
+
 ## Mark's Magick Notes
 
 ### RMagick script
