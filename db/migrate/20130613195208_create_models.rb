@@ -14,11 +14,10 @@ class CreateModels < ActiveRecord::Migration
 
     create_table :images do |t|
       t.string :name
+      t.belongs_to :image_type
       t.string :asset_image
       t.belongs_to :celeb
       t.belongs_to :title
-      t.belongs_to :image_type
-      # t.integer :image_type_id
       t.string :path
       t.timestamps
     end

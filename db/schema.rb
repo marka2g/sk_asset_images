@@ -31,10 +31,10 @@ ActiveRecord::Schema.define(:version => 20130613195208) do
 
   create_table "images", :force => true do |t|
     t.string   "name"
+    t.integer  "image_type_id"
     t.string   "asset_image"
     t.integer  "celeb_id"
     t.integer  "title_id"
-    t.integer  "image_type_id"
     t.string   "path"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
