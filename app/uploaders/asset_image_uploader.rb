@@ -16,7 +16,12 @@ class AssetImageUploader < CarrierWave::Uploader::Base
     resize_to_fill(100, 100)
   end
 
-  # rmagick crop
+  %w(large thumb biopic headshot boxcover promo).each do |version_type|
+    image_type = ImageType.find(name: version_type)
+    version(version_type) {process :generate_type version_type}
+  end
+
+  # rmagick crop for from end tools.
   def crop
     if model.crop_x.present?
       resize_to_limit(600, 600)
@@ -28,5 +33,15 @@ class AssetImageUploader < CarrierWave::Uploader::Base
         img.crop!(x, y, w, h)
       end
     end
+
+    def generate_type(version_type)
+      ImageManipulation::VersionConversion.new(options)
+
+    end
+
   end
 end
+
+# ImageManipulation::VersionConversion.new(options)
+
+# options = {:input_file => "#{Rails.root.join('public/uploads/test/')}game-of-thrones-takes-over-comic-con.jpg", :dimensions => {:x => 144, :y => 200}, :output_files => {:save_path => "#{Rails.root.join('public/uploads/test/output/')}", :save_name => "biopic_some_id"}}

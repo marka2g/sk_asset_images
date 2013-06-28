@@ -1,9 +1,8 @@
 SkAssetImages::Application.routes.draw do
   root to: 'images#index'
   resources :images
+  resources :image_types
 
-  # root to: 'celebs#index'
-  # root to: 'titles#index'
   resources :titles
   resources :celebs
 end
