@@ -1,6 +1,5 @@
 class AssetImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick - having annoying issues with minimagick
 
   storage :file
 
