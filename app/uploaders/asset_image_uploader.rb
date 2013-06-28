@@ -35,6 +35,7 @@ class AssetImageUploader < CarrierWave::Uploader::Base
     end
 
     def generate_type(image_type)
+      # options = {image_type[:blah]}
       # ImageManipulation::VersionConversion.new(options)
     end
 

@@ -15,6 +15,7 @@ class CreateModels < ActiveRecord::Migration
     create_table :images do |t|
       t.belongs_to :celeb
       t.belongs_to :title
+      t.belongs_to :image_type
       t.string :name
       t.string :path
       t.string :asset_image
@@ -22,7 +23,6 @@ class CreateModels < ActiveRecord::Migration
     end
 
     create_table :image_types do |t|
-      t.belongs_to :image
       t.string :name
       t.string :path
       t.integer :crop_x

@@ -11,36 +11,40 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130627112644) do
-
-  create_table "asset_images", :force => true do |t|
-    t.string   "name"
-    t.string   "image"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20130613195208) do
 
   create_table "celebs", :force => true do |t|
     t.string   "name"
-    t.string   "asset_image"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "celebs", ["name"], :name => "index_celebs_on_name", :unique => true
 
-  create_table "images", :force => true do |t|
-    t.integer  "celebs_id"
-    t.integer  "titles_id"
+  create_table "image_types", :force => true do |t|
+    t.string   "name"
+    t.string   "path"
+    t.integer  "crop_x"
+    t.integer  "crop_y"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
+  create_table "images", :force => true do |t|
+    t.integer  "celeb_id"
+    t.integer  "title_id"
+    t.integer  "image_type_id"
+    t.string   "name"
+    t.string   "path"
+    t.string   "asset_image"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
   create_table "titles", :force => true do |t|
     t.string   "name"
-    t.string   "asset_image"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "titles", ["name"], :name => "index_titles_on_name", :unique => true
