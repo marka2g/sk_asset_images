@@ -1,10 +1,12 @@
 ## Mark's Magick Notes
 
+###
+RMagick script
 * ImageManipulation::VersionConversion.new(:input_file => "#{Rails.root.join('public/uploads/test/')}game-of-thrones-takes-over-comic-con.jpg", :dimensions => {:x => 144, :y => 200}, :output_files => {:save_path => "#{Rails.root.join('public/uploads/test/output/')}", :save_name => "biopic_some_id"})
 
-## Or
+### Or
 
-## Image Magic Command Examples
+### Image Magic Command Examples
 * :biopic, :boxcover - convert game_of_thrones.jpg -resize '144X200^' -gravity center -crop '144X200+0+0+0' game_of_thrones_biopic.jpg
 * :headshot - convert game_of_thrones.jpg -resize '75X85^' -gravity center -crop '75X85+0+0+0' game_of_thrones_headshot.jpg
 * :promo - convert game_of_thrones.jpg -resize '300X200^' -gravity center -crop '300X200+0+0+0' game_of_thrones_promo.jpg
