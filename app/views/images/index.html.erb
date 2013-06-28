@@ -1,10 +1,14 @@
 <h1>Images</h1>
 
 <% @images.each do |image| %>
+	<div>
+		<h3>
+			<%= image.name %>
+		</h3>
+	</div>
   <div class="image">
-    <%#= image_tag image.image_url(:thumb) %>
+    <%= image_tag image.asset_image.url(:thumb) %><br/>
   </div>
 <% end %>
-<div class="clear"></div>
 
 <p><%= link_to "New Image", new_image_path %></p>

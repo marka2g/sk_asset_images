@@ -11,6 +11,14 @@ class AssetImageUploader < CarrierWave::Uploader::Base
     resize_to_limit(600, 600)
   end
 
+  version :large_thumb do
+    resize_to_limit(200, 200)
+  end
+
+  version :medium do
+    resize_to_limit(300, 300)
+  end
+
   version :thumb do
     # process :crop
     resize_to_fill(100, 100)
@@ -42,5 +50,5 @@ class AssetImageUploader < CarrierWave::Uploader::Base
   end
 end
 
-# ImageManipulation::VersionConversion.new(options)
+# ImageManipulation::Versioner.new(options)
 # options = {:input_file => "#{Rails.root.join('public/uploads/test/')}game-of-thrones-takes-over-comic-con.jpg", :dimensions => {:x => 144, :y => 200}, :output_files => {:save_path => "#{Rails.root.join('public/uploads/test/output/')}", :save_name => "biopic_some_id"}}

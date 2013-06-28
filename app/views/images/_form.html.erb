@@ -10,6 +10,9 @@
     </div>
   <% end %>
   <div class="field">
+    <%= f.label "Name" %>
+    <%= f.text_field :name %>
+    <br/>
     <%= f.label :asset_image, "Upload Image" %>
     <%= f.file_field :asset_image %>
   </div>

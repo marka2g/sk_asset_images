@@ -1,5 +1,5 @@
 module ImageManipulation
-  class VersionConversion
+  class Versioner
       require 'rmagick'
 
       def initialize(options = {})
