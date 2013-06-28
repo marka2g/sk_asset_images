@@ -13,7 +13,6 @@ class CreateModels < ActiveRecord::Migration
     add_index :titles, :name, :unique => true
 
     create_table :images do |t|
-      t.has_many :image_types
       t.belongs_to :celeb
       t.belongs_to :title
       t.string :name
