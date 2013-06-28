@@ -5,7 +5,7 @@
 * :promo - convert game_of_thrones.jpg -resize '300X200^' -gravity center -crop '300X200+0+0+0' game_of_thrones_promo.jpg
 
 ## Or
-* ImageManipulation::VersionConversion.new(:input_file => "/Users/msadegi/Dropbox/Projects/nonTKML/sk_asset_images/game_of_thrones_biopic.jpg", :dimensions => {:x => 144, :y => 200})
+* ImageManipulation::VersionConversion.new(:input_file => "#{Rails.root.join("public/test")}game_of_thrones_biopic.jpg", :dimensions => {:x => 144, :y => 200})
 
 # Asset Images Exercise
 
