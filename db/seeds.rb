@@ -3,6 +3,7 @@ Celeb.create(name: 'Keanu Reeves')
 
 Title.create(name: 'Breaking Bad')
 Title.create(name: 'Emmanuelle')
+Title.create(name: 'Game of Thrones')
 
 ImageType.create(name: 'biopic', crop_x: 144, crop_y: 200)
 ImageType.create(name: 'headshot', crop_x: 75, crop_y: 85)

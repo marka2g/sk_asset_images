@@ -16,9 +16,9 @@ class AssetImageUploader < CarrierWave::Uploader::Base
     resize_to_fill(100, 100)
   end
 
-  %w(large thumb biopic headshot boxcover promo).each do |version_type|
-    image_type = ImageType.find(name: version_type)
-    version(version_type) {process generate_type: image_type}
+  ImageType.all.each do |version_type|
+    image_type = ImageType.where(name: version_type.name).first
+    # version(version_type) {process generate_type: image_type}
   end
 
   # rmagick crop for from end tools.
@@ -35,13 +35,12 @@ class AssetImageUploader < CarrierWave::Uploader::Base
     end
 
     def generate_type(image_type)
-      # options = {image_type[:blah]}
-      # ImageManipulation::VersionConversion.new(options)
+      options = image_type
+      ImageManipulation::VersionConversion.new(image_type)
     end
 
   end
 end
 
 # ImageManipulation::VersionConversion.new(options)
-
 # options = {:input_file => "#{Rails.root.join('public/uploads/test/')}game-of-thrones-takes-over-comic-con.jpg", :dimensions => {:x => 144, :y => 200}, :output_files => {:save_path => "#{Rails.root.join('public/uploads/test/output/')}", :save_name => "biopic_some_id"}}
