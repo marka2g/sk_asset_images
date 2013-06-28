@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20130613195208) do
 
   create_table "celebs", :force => true do |t|
     t.string   "name"
+    t.string   "asset_image"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -23,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20130613195208) do
 
   create_table "titles", :force => true do |t|
     t.string   "name"
+    t.string   "asset_image"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
