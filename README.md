@@ -1,3 +1,12 @@
+## Mark's ImageMagick Notes
+## Command Examples
+* :biopic, :boxcover - convert game_of_thrones.jpg -resize '144X200^' -gravity center -crop '144X200+0+0+0' game_of_thrones_biopic.jpg
+* :headshot - convert game_of_thrones.jpg -resize '75X85^' -gravity center -crop '75X85+0+0+0' game_of_thrones_headshot.jpg
+* :promo - convert game_of_thrones.jpg -resize '300X200^' -gravity center -crop '300X200+0+0+0' game_of_thrones_promo.jpg
+
+## Or
+* ImageManipulation::VersionConversion.new(:input_file => "/Users/msadegi/Dropbox/Projects/nonTKML/sk_asset_images/game_of_thrones_biopic.jpg", :dimensions => {:x => 144, :y => 200})
+
 # Asset Images Exercise
 
 ## Assignment
