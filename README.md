@@ -1,7 +1,6 @@
 ## Mark's Magick Notes
 
-###
-RMagick script
+### RMagick script
 * ImageManipulation::VersionConversion.new(:input_file => "#{Rails.root.join('public/uploads/test/')}game-of-thrones-takes-over-comic-con.jpg", :dimensions => {:x => 144, :y => 200}, :output_files => {:save_path => "#{Rails.root.join('public/uploads/test/output/')}", :save_name => "biopic_some_id"})
 
 ### Or
