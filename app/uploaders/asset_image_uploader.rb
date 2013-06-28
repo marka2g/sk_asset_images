@@ -19,6 +19,7 @@ class AssetImageUploader < CarrierWave::Uploader::Base
 
   # rmagick crop
   def crop
+binding.pry
     if model.crop_x.present?
       resize_to_limit(600, 600)
       manipulate! do |img|

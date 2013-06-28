@@ -5,6 +5,7 @@ class Title < ActiveRecord::Base
   after_update :crop_asset_image
 
   validates :name, :presence => true, :uniqueness => {:case_sensitive => false}
+  has_many :images
 
   def crop_asset_image
     asset_image.recreate_versions! if crop_x.present?

@@ -13,5 +13,11 @@ class CreateModels < ActiveRecord::Migration
       t.timestamps
     end
     add_index :titles, :name, :unique => true
+
+    create_table :images do |t|
+      t.belongs_to :celebs
+      t.belongs_to :titles
+      t.timestamps
+    end
   end
 end
