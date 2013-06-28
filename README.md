@@ -1,6 +1,7 @@
 ## Instructions
 * rake db:migrate
 * rake db:seed
+* rails s
 * play
 
 ## Mark's Magick Notes
