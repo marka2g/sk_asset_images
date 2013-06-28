@@ -1,5 +1,6 @@
 class ImageType < ActiveRecord::Base
-  attr_accessible :name, :path, :crop_x, :crop_y
+  attr_accessible :name, :crop_x, :crop_y
 
-  belongs_to :images
+  # belongs_to :image
+
 end

@@ -18,7 +18,7 @@ class AssetImageUploader < CarrierWave::Uploader::Base
 
   %w(large thumb biopic headshot boxcover promo).each do |version_type|
     image_type = ImageType.find(name: version_type)
-    version(version_type) {process :generate_type image_type}
+    version(version_type) {process generate_type: image_type}
   end
 
   # rmagick crop for from end tools.

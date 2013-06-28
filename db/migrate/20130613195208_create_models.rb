@@ -13,18 +13,18 @@ class CreateModels < ActiveRecord::Migration
     add_index :titles, :name, :unique => true
 
     create_table :images do |t|
+      t.string :name
+      t.string :asset_image
       t.belongs_to :celeb
       t.belongs_to :title
       t.belongs_to :image_type
-      t.string :name
+      # t.integer :image_type_id
       t.string :path
-      t.string :asset_image
       t.timestamps
     end
 
     create_table :image_types do |t|
       t.string :name
-      t.string :path
       t.integer :crop_x
       t.integer :crop_y
       t.timestamps
