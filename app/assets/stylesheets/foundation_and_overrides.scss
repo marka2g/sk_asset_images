@@ -1270,4 +1270,7 @@ $default-float: left;
 
 // $topbar-sticky-class: ".sticky";
 
+$column-gutter: emCalc(60px);
+$topbar-bg: #212D48 !default;
+
 @import 'foundation';

@@ -13,3 +13,21 @@
  *= require foundation_and_overrides
  *= require_tree .
  */
+label.right {
+  padding-right: 10px;
+}
+
+/*totally lame, don't do this!!!!*/
+#body-container {
+	margin: 0 100px 0 100px;
+}
+
+div#image_list_container{
+	width: 100%;
+}
+
+ul.image_list_item {
+	list-style-type:none;
+	width: 40%;
+	display: inline-block;
+}
