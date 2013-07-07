@@ -1,0 +1,24 @@
+<h1>Titles</h1>
+
+<div><%= link_to "New Title", new_title_path %></div>
+<% @titles.each do |title| %>
+	<ul class="image_list_item">
+		<div id="image_list_container">
+			<li>
+				<h4><%= title.name %></h4>
+					<ul>
+						<li class="no-bullet">
+						<% title.images.each do |i| %>
+							<% i.image_types.each do |t| %>
+							<div id="title_images">
+								<%= t.name.humanize %><br/>
+								<%= link_to image_tag(i.asset_image.url(:thumb)), edit_image_path(i) %>
+							</div>
+						</li>
+						<% end %>
+					<% end %>
+				</ul>
+			</li>
+		</div>
+	</ul>
+<% end %>
