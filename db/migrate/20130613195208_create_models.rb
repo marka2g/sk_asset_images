@@ -15,8 +15,10 @@ class CreateModels < ActiveRecord::Migration
     create_table :images do |t|
       t.string :name
       t.string :asset_image
+      t.references :imageable, polymorphic: true
       t.timestamps
     end
+    add_index :images, [:imageable_id, :imageable_type]
 
     create_table :image_types do |t|
       t.string :name

@@ -24,6 +24,8 @@ label.right {
 
 div#image_list_container{
 	width: 100%;
+	margin: 10px 20px;
+
 }
 
 ul.image_list_item {
