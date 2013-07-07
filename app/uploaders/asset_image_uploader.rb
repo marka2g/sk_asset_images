@@ -29,6 +29,11 @@ class AssetImageUploader < CarrierWave::Uploader::Base
     # version(version_type) {process generate_type: image_type}
   end
 
+  def generate_type(image_type)
+    options = image_type
+    ImageManipulation::VersionConversion.new(image_type)
+  end
+
   # rmagick crop for from end tools.
   def crop
     if model.crop_x.present?
@@ -42,13 +47,7 @@ class AssetImageUploader < CarrierWave::Uploader::Base
       end
     end
 
-    def generate_type(image_type)
-      options = image_type
-      ImageManipulation::VersionConversion.new(image_type)
-    end
-
   end
 end
 
-# ImageManipulation::Versioner.new(options)
-# options = {:input_file => "#{Rails.root.join('public/uploads/test/')}game-of-thrones-takes-over-comic-con.jpg", :dimensions => {:x => 144, :y => 200}, :output_files => {:save_path => "#{Rails.root.join('public/uploads/test/output/')}", :save_name => "biopic_some_id"}}
+# ImageManipulation::Versioner.new(:input_file => "#{Rails.root.join("public/uploads/test/input/")}biopic_test.jpg", :dimensions => {:x => 144, :y => 200}, :output_files => {:save_path => "#{Rails.root.join('public/uploads/test/output/')}", :save_name => "this_is_a_test_2"})
