@@ -14,11 +14,7 @@ class CreateModels < ActiveRecord::Migration
 
     create_table :images do |t|
       t.string :name
-      t.belongs_to :image_type
       t.string :asset_image
-      t.belongs_to :celeb
-      t.belongs_to :title
-      t.string :path
       t.timestamps
     end
 
@@ -26,6 +22,12 @@ class CreateModels < ActiveRecord::Migration
       t.string :name
       t.integer :crop_x
       t.integer :crop_y
+      t.timestamps
+    end
+
+    create_table :processed_images do |t|
+      t.belongs_to :image
+      t.belongs_to :image_type
       t.timestamps
     end
 
