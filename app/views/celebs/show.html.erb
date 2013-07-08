@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h2>Celeb Name:<%= simple_format @celeb.name %></h2>
+</p>
+<%= link_to 'Edit', edit_celeb_path(@celeb) %> |
+<%= link_to "Destroy", @celeb, method: :delete, confirm: "Are you sure?" %> |
+<%= link_to 'All Celebs', celebs_path %>
+
+<h2>Celeb Images</h2>
+
+<%= render "images/images" %>
+
+<h2>Or, add a new Image</h2>
+<%= render "images/form" %>
