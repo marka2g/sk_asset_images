@@ -13,21 +13,29 @@
     <%= f.label "Name" %>
     <%= f.text_field :name %>
     <br/>
-    <%= f.fields_for :images do |builder| %>
+    <%= f.fields_for :images do |ff| %>
+      <%= ff.fields_for :image_type do |fff| %>
       <fieldset>
         <%= ff.label :name, "Image Name" %><br/>
         <%= ff.text_field :name %>
+        <h5>Image Type: <%= @title.images.first.image_types.first.name %></h5>
+        <div class="thumb_image_container">
+          <% @title.images.each do |img| %>
+            <%= fff.label :name, @title.images.first.name %>
+            <%= link_to image_tag(img.asset_image.url(:thumb)), edit_title_path(@title) %>
+          <% end %>
+        </div>
         <%= ff.label :asset_image, "Upload New Title Image" %><br/>
         <%= ff.file_field :asset_image %>
         <fieldset>
             <h4>Image Type</h4>
-            <%= ff.fields_for :image_type do |fff| %>
-            <%= fff.label :name %>
-            <%= fff.text_field :name %>
-            <%= fff.label :crop_x %>
-            <%= fff.text_field :crop_x %>
-            <%= fff.label :crop_y %>
-            <%= fff.text_field :crop_y %>
+            <%#= ff.fields_for :image_type do |fff| %>
+            <%#= fff.label :name %>
+            <%#= fff.text_field :name %>
+            <%#= fff.label :crop_x %>
+            <%#= fff.text_field :crop_x %>
+            <%#= fff.label :crop_y %>
+            <%#= fff.text_field :crop_y %>
           <% end %>
         </fieldset>
       </fieldset>

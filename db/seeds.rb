@@ -1,4 +1,4 @@
-Celeb.create(name: 'Kevin Spacy')
+Celeb.create(name: 'Kevin Spacey')
 Celeb.create(name: 'Keanu Reeves')
 
 Title.create(name: 'Breaking Bad')

@@ -24,7 +24,7 @@ label.right {
 
 ul.image_list_item {
 	list-style-type:none;
-	width: 40%;
+	width: 50%;
 	display: inline-block;
 }
 
@@ -50,4 +50,13 @@ div#image_list_container{
 #celebs {
 	width: 50%;
 	float: right;
+}
+
+.full_image_container {
+	margin: 10px 0 20px 0;
+}
+
+.thumb_image_container {
+	width: 25%;
+	margin: 20px 0 20px 0;
 }
