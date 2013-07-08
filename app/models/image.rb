@@ -4,5 +4,6 @@ class Image < ActiveRecord::Base
 
   belongs_to :imageable, :polymorphic => true
   has_many :processed_images
+  # has_one :image_type, :through => :processed_images
   has_many :image_types, :through => :processed_images
 end

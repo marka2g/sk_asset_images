@@ -13,7 +13,6 @@
     <%= f.label "Name" %>
     <%= f.text_field :name %>
     <br/>
-    <%#= f.fields_for :images, @title.images.build do |builder| %>
     <%= f.fields_for :images do |builder| %>
       <fieldset>
         <%= ff.label :name, "Image Name" %><br/>

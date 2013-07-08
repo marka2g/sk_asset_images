@@ -1,3 +1,4 @@
+<% binding.pry %>
 <%= form_for @celeb do |f| %>
   <% if @celeb.errors.any? %>
     <div id="error_explanation">
@@ -15,6 +16,9 @@
     <br/>
     <%= f.fields_for :images do |ff| %>
       <fieldset>
+        <% @celeb.images.each do |img| %>
+          <%= link_to image_tag(img.asset_image.url(:thumb)), edit_celeb_path(@celeb) %>
+        <% end %>
         <%= ff.label :name, "Image Name" %><br/>
         <%= ff.text_field :name %>
         <%= ff.label :asset_image, "Upload New Celeb Image" %><br/>

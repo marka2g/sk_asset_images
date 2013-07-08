@@ -11,7 +11,7 @@
 								<% i.image_types.each do |t| %>
 								<div id="celeb_images">
 									<%= t.name.humanize %><br/>
-									<%= link_to image_tag(i.asset_image.url(:thumb)), edit_celeb_path(title) %>
+									<%= link_to image_tag(i.asset_image.url(:thumb)), edit_celeb_path(celeb) %>
 								</div>
 							</li>
 							<% end %>
