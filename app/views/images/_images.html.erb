@@ -1,0 +1,10 @@
+<% @images.each do |image| %>
+	<ul class="image_list_item">
+		<div id="image_list_container">
+			<li>
+				<h4><%= image.name %></h4>
+				<%= link_to image_tag(image.asset_image.url(:thumb)), edit_image_path(image) %>
+			</li>
+		</div>
+	</ul>
+<% end %>

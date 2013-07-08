@@ -1,9 +1,6 @@
 <h1>Editing Image</h1>
 
 <h4>Current Image</h4>
-<div><%= image_tag @image.asset_image.url(:thumb)%></div><br/>
+<div><%#= image_tag @image.asset_image.url(:thumb)%></div><br/>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @image %> |
-<%= link_to 'All Images', images_path %>

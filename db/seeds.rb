@@ -28,5 +28,5 @@ i2 = Image.find 2
 it1 = ImageType.find 1
 it2 = ImageType.find 2
 
-i1.image_types = [it1]
-i2.image_types = [it2]
+i1.image_types << [it1]
+i2.image_types << [it2]

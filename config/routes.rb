@@ -1,7 +1,13 @@
 SkAssetImages::Application.routes.draw do
-  root to: 'images#index'
   resources :images
 
-  resources :titles
-  resources :celebs
+  resources :titles do
+  	resources :images
+  end
+  resources :celebs do
+  	resources :images
+  end
+
+	root to: 'titles#index'
+
 end

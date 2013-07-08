@@ -1,13 +1,4 @@
 <h1>Images</h1>
 
-<div><%= link_to "New Image", new_image_path %></div>
-<% @images.each do |image| %>
-	<ul class="image_list_item">
-		<div id="image_list_container">
-			<li>
-				<h4><%= image.name %></h4>
-				<%= link_to image_tag(image.asset_image.url(:thumb)), edit_image_path(image) %>
-			</li>
-		</div>
-	</ul>
-<% end %>
+<div><%= link_to "New Image", [:new, @imageable, :image] %></div>
+<div><%= render 'images' %></div>

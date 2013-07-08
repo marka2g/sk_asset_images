@@ -5,14 +5,20 @@ class TitlesController < ApplicationController
 
   def show
     @title = Title.find(params[:id])
+    @imageable = @title
+    @images = @imageable.images
+    @image = Image.new
   end
 
   def new
     @title = Title.new
+    @title.images.build
+    # @title.image_types.new
   end
 
   def create
     @title = Title.new(params[:title])
+# binding.pry
     if @title.save
       redirect_to @title, notice: "Successfully created title."
 
@@ -24,6 +30,15 @@ class TitlesController < ApplicationController
     else
       render :new
     end
+
+    # BS!!!!
+    # @article = Article.new(params[:article])
+    # if @article.save
+    #   redirect_to @article, notice: "Article was successfully created."
+    # else
+    #   render :new
+    # end
+
   end
 
   def edit
@@ -33,21 +48,20 @@ class TitlesController < ApplicationController
   def update
     @title = Title.find(params[:id])
     if @title.update_attributes(params[:title])
-      redirect_to @title, notice: "Successfully updated title."
-
+      redirect_to @title, notice: "Successfully updated the title."
       # if params[:title][:asset_image].present?
       #   render :crop
       # else
       #   redirect_to @title, notice: "Successfully updated title."
       # end
     else
-      render :new
+      render :edit
     end
   end
 
   def destroy
     @title = Title.find(params[:id])
     @title.destroy
-    redirect_to titles_url, notice: "Successfully destroyed title."
+    redirect_to titles_url, notice: "Successfully destroyed the title."
   end
 end
