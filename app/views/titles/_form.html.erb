@@ -16,19 +16,22 @@
     <%#= f.fields_for :images, @title.images.build do |builder| %>
     <%= f.fields_for :images do |builder| %>
       <fieldset>
-        <%= builder.label :name, "Image Name" %><br/>
-        <%= builder.text_field :name %>
-        <%= builder.label :asset_image, "Upload New Title Image" %><br/>
-        <%= builder.file_field :asset_image %>
-
-        <%#= builder.fields_for :image_types do |fff| %>
-          <%#= fff.label :name "Image Type Name" %>
-          <%#= fff.option_select :name %>
-        <%#= end %>
-        <%#= render 'shared/image_fields', f: builder %>
-        <%#= link_to_add_fields "Add Image", f, :images %>
+        <%= ff.label :name, "Image Name" %><br/>
+        <%= ff.text_field :name %>
+        <%= ff.label :asset_image, "Upload New Title Image" %><br/>
+        <%= ff.file_field :asset_image %>
+        <fieldset>
+            <h4>Image Type</h4>
+            <%= ff.fields_for :image_type do |fff| %>
+            <%= fff.label :name %>
+            <%= fff.text_field :name %>
+            <%= fff.label :crop_x %>
+            <%= fff.text_field :crop_x %>
+            <%= fff.label :crop_y %>
+            <%= fff.text_field :crop_y %>
+          <% end %>
+        </fieldset>
       </fieldset>
-
     <% end %>
   </div>
   <div class="actions">
