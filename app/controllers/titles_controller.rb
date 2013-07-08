@@ -12,7 +12,7 @@ class TitlesController < ApplicationController
 
   def new
     @title = Title.new
-    @title.images.build
+    # @title.images.build
     # @title.image_types.new
   end
 

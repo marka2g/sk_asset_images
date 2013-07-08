@@ -7,21 +7,21 @@ class AssetImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  version :large do
-    resize_to_limit(600, 600)
-  end
-
-  version :large_thumb do
-    resize_to_limit(200, 200)
-  end
-
-  version :medium do
-    resize_to_limit(300, 300)
-  end
-
   version :thumb do
     # process :crop
     resize_to_fill(100, 100)
+  end
+
+  version :medium do
+    resize_to_limit(200, 200)
+  end
+
+  version :large_thumb do
+    resize_to_limit(300, 300)
+  end
+
+  version :large do
+    resize_to_limit(400, 400)
   end
 
   ImageType.all.each do |version_type|

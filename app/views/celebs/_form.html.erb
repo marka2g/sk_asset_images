@@ -26,8 +26,10 @@
             <%= link_to image_tag(img.asset_image.url(:thumb)), edit_celeb_path(@celeb) %>
           <% end %>
         </div>
-        <%= ff.label :asset_image, "Upload New Celeb Image" %><br/>
-        <%= ff.file_field :asset_image %>
+        <div>
+          <%= ff.label :asset_image, "Upload New Celeb Image" %><br/>
+          <%= ff.file_field :asset_image %>
+        </div>
         <fieldset>
             <h4>Image Type</h4>
             <%#= fff.label :name, "Image Type" %>

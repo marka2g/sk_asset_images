@@ -9,7 +9,7 @@
 							<% i.image_types.each do |t| %>
 							<div id="model_images">
 								<%= link_to image_tag(i.asset_image.url(:thumb)), edit_celeb_path(celeb) %><br/>
-								<span><%= t.name.humanize %> | <%= t.crop_x %> X <%= t.crop_y %></span>
+								<span><%#= t.name.humanize %> | <%= t.crop_x %> X <%= t.crop_y %></span>
 							</div>
 							<% end %>
 						<% end %>
