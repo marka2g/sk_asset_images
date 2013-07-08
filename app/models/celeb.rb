@@ -1,5 +1,5 @@
 class Celeb < ActiveRecord::Base
-  attr_accessible :name, :image_attributes
+  attr_accessible :name, :images_attributes
 
   validates :name, :presence => true, :uniqueness => {:case_sensitive => false}
   has_many :images, as: :imageable

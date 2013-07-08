@@ -18,10 +18,8 @@ class TitlesController < ApplicationController
 
   def create
     @title = Title.new(params[:title])
-# binding.pry
     if @title.save
       redirect_to @title, notice: "Successfully created title."
-
       # if params[:title][:asset_image].present?
       #   render :crop
       # else
@@ -30,15 +28,6 @@ class TitlesController < ApplicationController
     else
       render :new
     end
-
-    # BS!!!!
-    # @article = Article.new(params[:article])
-    # if @article.save
-    #   redirect_to @article, notice: "Article was successfully created."
-    # else
-    #   render :new
-    # end
-
   end
 
   def edit

@@ -1,13 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Title:</b><br/>
-  <b><%= @title.name %></b>
-  <%= image_tag(@image.asset_image.url(:medium)) %>
-<% binding.pry %>
+  <h2>Title Name:</h2><br/>
+  <h3><%= simple_format @title.name %></h3>
+  <%#= image_tag(@image.asset_image.url(:medium)) %>
   <%#= link_to image_tag(@image.asset_image.url(:medium)), edit_image_path(@image) %>
 </p>
-
 <%= link_to 'Edit', edit_title_path(@title) %> |
 <%= link_to "Destroy", @title, method: :delete, confirm: "Are you sure?" %> |
 <%= link_to 'All Titles', titles_path %>
+
+<h2>Title Images</h2>
+
+<%= render "images/images" %>
+
+<h2>Or, add a new Image</h2>
+<%= render "images/form" %>
+
