@@ -38,6 +38,16 @@ div#image_list_container{
 	list-style-type:none;
 }
 
-#title_images {
+#model_images {
 	background-color: #E8E8E8;
+}
+
+#titles {
+	width: 50%;
+	float: left;
+}
+
+#celebs {
+	width: 50%;
+	float: right;
 }

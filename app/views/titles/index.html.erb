@@ -10,7 +10,7 @@
 						<li class="no-bullet">
 						<% title.images.each do |i| %>
 							<% i.image_types.each do |t| %>
-							<div id="title_images">
+							<div id="model_images">
 								<%= t.name.humanize %><br/>
 								<%#= link_to image_tag(i.asset_image.url(:thumb)), edit_image_path(i) %>
 								<%= link_to image_tag(i.asset_image.url(:thumb)), edit_title_path(title) %>
