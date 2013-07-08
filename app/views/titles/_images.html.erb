@@ -8,8 +8,8 @@
 						<% title.images.each do |i| %>
 							<% i.image_types.each do |t| %>
 							<div id="model_images">
-								<%= link_to image_tag(i.asset_image.url(:thumb)), edit_title_path(title) %>
-								<span><%= t.name.humanize %> | Dimensions: <%= t.crop_x %> X <%= t.crop_y %></span><br/>
+								<%= link_to image_tag(i.asset_image.url(:thumb)), edit_title_path(title) %><br/>
+								<span><%= t.name.humanize %> | <%= t.crop_x %> X <%= t.crop_y %></span>
 							</div>
 							<% end %>
 						<% end %>
