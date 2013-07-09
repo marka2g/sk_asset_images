@@ -31,10 +31,12 @@ class TitlesController < ApplicationController
   end
 
   def edit
+binding.pry
     @title = Title.find(params[:id])
   end
 
   def update
+binding.pry
     @title = Title.find(params[:id])
     if @title.update_attributes(params[:title])
       redirect_to @title, notice: "Successfully updated the title."

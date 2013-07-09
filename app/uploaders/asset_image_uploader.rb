@@ -4,34 +4,13 @@ class AssetImageUploader < CarrierWave::Uploader::Base
   storage :file
 
   def store_dir
-binding.pry
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.imageable_type.downcase}/#{model.id}" #need parent model in path
   end
 
-  version :thumb do
-    process :resize_to_fill => [100, 100]
-  end
-
-  version :biopic, :boxcover do
-    process :resize_to_limit => [144, 200]
-  end
-
-  version :headshot do
-    process :resize_to_limit => [75, 85]
-  end
-
-  version :promo do
-    process :resize_to_limit => [400, 400]
-  end
-
-  ImageType.all.each do |version_type|
-    image_type = ImageType.where(name: version_type.name).first
-    # version(version_type) {process generate_type: image_type}
-  end
-
-  def generate_type(image_type)
-    options = image_type
-    ImageManipulation::VersionConversion.new(image_type)
+  ImageType.all.each do |type|
+    version type.name.to_sym do
+      process :resize_to_fill => [type.crop_x, type.crop_y]
+    end
   end
 
   # rmagick crop for from end tools.
@@ -49,5 +28,3 @@ binding.pry
 
   end
 end
-
-# ImageManipulation::Versioner.new(:input_file => "#{Rails.root.join("public/uploads/test/input/")}biopic_test.jpg", :dimensions => {:x => 144, :y => 200}, :output_files => {:save_path => "#{Rails.root.join('public/uploads/test/output/')}", :save_name => "this_is_a_test_2"})
