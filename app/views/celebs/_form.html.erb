@@ -1,5 +1,4 @@
-<%# binding.pry %>
-<%= form_for @celeb do |f| %>
+<%= form_for @celeb, :html => {:multipart => true} do |f| %>
   <% if @celeb.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@celeb.errors.count, "error") %> prohibited this celeb from being saved:</h2>
@@ -19,7 +18,6 @@
       <fieldset>
         <%= ff.label :name, "Image Name" %><br/>
         <%= ff.text_field :name %>
-        <h5>Image Type: <%= @celeb.images.first.image_types.first.name %></h5>
         <div class="thumb_image_container">
           <% @celeb.images.each do |img| %>
             <%= fff.label :name %>

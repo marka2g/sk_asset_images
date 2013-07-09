@@ -25,6 +25,7 @@ class ImagesController < ApplicationController
 private
 
   def load_imageable
+binding.pry
     resource, id = request.path.split('/')[1, 2] #/titles/1
     @imageable = resource.singularize.classify.constantize.find(id)
   end

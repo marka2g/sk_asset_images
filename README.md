@@ -1,4 +1,6 @@
 ## Instructions
+* git clone git@github.com:marka2g/sk_asset_images.git
+* bundle install
 * rake db:migrate
 * rake db:seed
 * rails s

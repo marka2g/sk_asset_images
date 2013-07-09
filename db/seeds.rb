@@ -35,6 +35,7 @@ i6 = Image.find 6
 it1 = ImageType.find 1
 it2 = ImageType.find 2
 it3 = ImageType.find 3
+it4 = ImageType.find 4
 
 i1.image_types << [it1]
 i2.image_types << [it2]

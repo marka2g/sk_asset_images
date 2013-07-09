@@ -4,24 +4,24 @@ class AssetImageUploader < CarrierWave::Uploader::Base
   storage :file
 
   def store_dir
+binding.pry
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
   version :thumb do
-    # process :crop
-    resize_to_fill(100, 100)
+    process :resize_to_fill => [100, 100]
   end
 
-  version :medium do
-    resize_to_limit(200, 200)
+  version :biopic, :boxcover do
+    process :resize_to_limit => [144, 200]
   end
 
-  version :large_thumb do
-    resize_to_limit(300, 300)
+  version :headshot do
+    process :resize_to_limit => [75, 85]
   end
 
-  version :large do
-    resize_to_limit(400, 400)
+  version :promo do
+    process :resize_to_limit => [400, 400]
   end
 
   ImageType.all.each do |version_type|
