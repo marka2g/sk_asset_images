@@ -4,9 +4,15 @@ class AssetImageUploader < CarrierWave::Uploader::Base
   storage :file
 
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.imageable_type.downcase}/#{model.id}" #need parent model in path
+   "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    # "uploads/#{model.imageable_type.to_s.underscore}/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}" #might need this...
   end
 
+  version :thumb do
+    process :resize_to_fill => [100, 100]
+  end
+
+  # this wud work, except, now the version does not exist in the class...
   ImageType.all.each do |type|
     version type.name.to_sym do
       process :resize_to_fill => [type.crop_x, type.crop_y]
