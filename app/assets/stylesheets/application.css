@@ -61,7 +61,12 @@ div#image_list_container{
 	margin: 20px 0 20px 0;
 }
 
-.buttons-container {}
-.new-button { float:left;}
+.new-button {float:left;}
 .home-button {float:right;}
 
+.all-titles {float:left;}
+.all-celebs {float:right;}
+
+.clear {
+	clear: all;
+}

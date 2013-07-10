@@ -1,25 +1,15 @@
 ## Instructions
 * git clone git@github.com:marka2g/sk_asset_images.git
 * bundle install
+* set up database.yml
 * rake db:migrate
 * rake db:seed
+** known seed issues: Image.filename is not saving
 * rails s
 * play
 
-## Mark's Magick Notes
-
-### RMagick script
-* ImageManipulation::VersionConversion.new(:input_file => "#{Rails.root.join('public/uploads/test/')}game-of-thrones-takes-over-comic-con.jpg", :dimensions => {:x => 144, :y => 200}, :output_files => {:save_path => "#{Rails.root.join('public/uploads/test/output/')}", :save_name => "biopic_some_id"})
-
-### Or
-
-### Image Magic Command Examples
-* :biopic, :boxcover - convert game_of_thrones.jpg -resize '144X200^' -gravity center -crop '144X200+0+0+0' game_of_thrones_biopic.jpg
-* :headshot - convert game_of_thrones.jpg -resize '75X85^' -gravity center -crop '75X85+0+0+0' game_of_thrones_headshot.jpg
-* :promo - convert game_of_thrones.jpg -resize '300X200^' -gravity center -crop '300X200+0+0+0' game_of_thrones_promo.jpg
-
-
 ## <><><><><><><><><><><>
+
 # Asset Images Exercise
 
 ## Assignment

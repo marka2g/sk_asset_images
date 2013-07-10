@@ -9,8 +9,15 @@
 	<div><%= link_to "New Celeb", new_celeb_path, :class=> 'button radius' %></div>
 	<%= render 'celebs/images' %>
 </div>
-<%= link_to "all titles", titles_path %> |
-<%= link_to "all celebs", celebs_path %>
 <fieldset>
 	<h3>Image Types</h3>
 </fieldset>
+
+<div class="all-container">
+	<div class="all-titles">
+		<%= link_to "all titles", titles_path, :class=> 'button radius'  %>
+	</div>
+	<div class="all-celebs">
+		<%= link_to "all celebs", celebs_path, :class=> 'button radius'  %>
+	</div>
+</div>
