@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <h2>Title Name:<%= simple_format @title.name %></h2>
+  <h2>Name:<%= simple_format @title.name %></h2>
   <%#= image_tag(@image.filename.url(:medium)) %>
   <%#= link_to image_tag(@image.filename.url(:medium)), edit_image_path(@image) %>
 </p>
@@ -12,5 +12,5 @@
 
 <h2>Title Images</h2>
 
-<%= render "images/images" %>
+<%= render "images" %>
 
