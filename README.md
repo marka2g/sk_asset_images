@@ -3,8 +3,7 @@
 * bundle install
 * set up database.yml
 * rake db:migrate
-* rake db:seed
-** known seed issues: Image.filename is not saving
+* rake db:seed <> known seed issues: Image.filename is not saving
 * rails s
 * play
 
