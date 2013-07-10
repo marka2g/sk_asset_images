@@ -12,13 +12,12 @@ class CreateModels < ActiveRecord::Migration
     end
     add_index :titles, :name, :unique => true
 
-    create_table :images do |t|
-      t.string :name
-      t.string :asset_image
-      t.references :imageable, polymorphic: true
+   create_table :images do |t|
+      t.string :filename
+      t.references :attachable, polymorphic: true
       t.timestamps
     end
-    add_index :images, [:imageable_id, :imageable_type]
+    add_index :images, [:attachable_id, :attachable_type]
 
     create_table :image_types do |t|
       t.string :name

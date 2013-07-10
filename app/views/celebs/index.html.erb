@@ -1,3 +1,11 @@
 	<h1>Celebs</h1>
-	<div><%= link_to "New Celeb", new_celeb_path, :class=> 'button radius' %></div>
 	<%= render 'images' %>
+	<div class="buttons-container">
+		<div class="new-button">
+			<%#= link_to "New Image", [:new, @attachable, :image], :class=> 'button radius' %>
+			<%= link_to "New Celeb", new_celeb_path, :class=> 'button radius' %>
+		</div>
+		<div class="home-button">
+			<%= link_to "Home", root_path, :class=> 'button radius' %>
+		</div>
+	</div>

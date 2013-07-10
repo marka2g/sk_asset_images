@@ -1,18 +1,18 @@
 class ImagesController < ApplicationController
-  before_filter :load_imageable
+  before_filter :load_attachable
 
   def index
-    @images = @imageable.images
+    @images = @attachable.images
   end
 
   def new
-    @image = @imageable.images.new
+    @image = @attachable.images.new
   end
 
   def create
-    @image = @imageable.images.new(params[:image])
+    @image = @attachable.images.new(params[:image])
     if @image.save
-      redirect_to @imageable, notice: "Comment created."
+      redirect_to @attachable, notice: "Comment created."
     else
       render :new
     end
@@ -24,15 +24,14 @@ class ImagesController < ApplicationController
 
 private
 
-  def load_imageable
-binding.pry
+  def load_attachable
     resource, id = request.path.split('/')[1, 2] #/titles/1
-    @imageable = resource.singularize.classify.constantize.find(id)
+    @attachable = resource.singularize.classify.constantize.find(id)
   end
 
   # alternative option:
-  # def load_imageable
+  # def load_attachable
   #   klass = [Celeb, Title].detect { |c| params["#{c.name.underscore}_id"] }
-  #   @imageable = klass.find(params["#{klass.name.underscore}_id"])
+  #   @attachable = klass.find(params["#{klass.name.underscore}_id"])
   # end
 end

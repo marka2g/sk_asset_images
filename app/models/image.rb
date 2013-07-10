@@ -1,8 +1,10 @@
 class Image < ActiveRecord::Base
-	mount_uploader :asset_image, AssetImageUploader
-  attr_accessible :asset_image, :name
+	attr_accessible :attachable_id, :attachable_type, :filename
+	attr_accessor :image, :file, :filename
+	belongs_to :attachable, polymorphic: true
 
-  belongs_to :imageable, :polymorphic => true
   has_many :processed_images
   has_many :image_types, :through => :processed_images
+
+  mount_uploader :filename, AssetImageUploader
 end

@@ -30,15 +30,14 @@ ActiveRecord::Schema.define(:version => 20130613195208) do
   end
 
   create_table "images", :force => true do |t|
-    t.string   "name"
-    t.string   "asset_image"
-    t.integer  "imageable_id"
-    t.string   "imageable_type"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.string   "filename"
+    t.integer  "attachable_id"
+    t.string   "attachable_type"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
-  add_index "images", ["imageable_id", "imageable_type"], :name => "index_images_on_imageable_id_and_imageable_type"
+  add_index "images", ["attachable_id", "attachable_type"], :name => "index_images_on_attachable_id_and_attachable_type"
 
   create_table "processed_images", :force => true do |t|
     t.integer  "image_id"

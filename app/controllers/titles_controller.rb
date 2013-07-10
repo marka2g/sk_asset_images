@@ -12,15 +12,14 @@ class TitlesController < ApplicationController
 
   def new
     @title = Title.new
-    # @title.images.build
-    # @title.image_types.new
+    #@title.images.build
   end
 
   def create
     @title = Title.new(params[:title])
     if @title.save
       redirect_to @title, notice: "Successfully created title."
-      # if params[:title][:asset_image].present?
+      # if params[:title][:image].present?
       #   render :crop
       # else
       #   redirect_to @title, notice: "Successfully created title."
@@ -31,16 +30,14 @@ class TitlesController < ApplicationController
   end
 
   def edit
-# binding.pry
     @title = Title.find(params[:id])
   end
 
   def update
-# binding.pry
     @title = Title.find(params[:id])
     if @title.update_attributes(params[:title])
       redirect_to @title, notice: "Successfully updated the title."
-      # if params[:title][:asset_image].present?
+      # if params[:title][:image].present?
       #   render :crop
       # else
       #   redirect_to @title, notice: "Successfully updated title."

@@ -1,4 +1,10 @@
 <h1>Images</h1>
-
-<div><%= link_to "New Image", [:new, @imageable, :image] %></div>
 <div><%= render 'images' %></div>
+<div class="buttons-container">
+	<div class="new-button">
+		<%= link_to "New Image", [:new, @attachable, :image], :class=> 'button radius' %>
+	</div>
+	<div class="home-button">
+		<%= link_to "Home", root_path, :class=> 'button radius' %>
+	</div>
+</div>

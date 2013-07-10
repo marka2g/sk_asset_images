@@ -1,5 +1,5 @@
-# setup - refactor/ cleanup, yuk!
-
+# setup - refactor/cleanup, yuk!
+# issue - filename on image is not saving, it is thru an carrierwave upload tho...
 def grab_test_files(id)
 	path = "#{Rails.root.join('public/test_images')}/#{id}/"
 	file_name = Dir.entries("#{path}").last
@@ -11,6 +11,7 @@ ImageType.create(name: 'biopic', crop_x: 144, crop_y: 200)
 ImageType.create(name: 'headshot', crop_x: 75, crop_y: 85)
 ImageType.create(name: 'boxcover', crop_x: 144, crop_y: 200)
 ImageType.create(name: 'promo', crop_x: 300, crop_y: 200)
+ImageType.create(name: 'thumb', crop_x: 100, crop_y: 100)
 
 Celeb.create(name: 'Kevin Spacey')
 Celeb.create(name: 'Keanu Reeves')
@@ -20,53 +21,46 @@ Title.create(name: 'Emmanuelle')
 Title.create(name: 'Game of Thrones')
 
 c1 = Celeb.find 1
-c2 = Celeb.find 2
-c3 = Celeb.find 3
-t1 = Title.find 1
-t2 = Title.find 2
-t3 = Title.find 3
-
 new_image_c1 = c1.images.build
-test_file_c1, file_name_c1 = grab_test_files(new_image_c1.imageable_id)
-new_image_c1.name = "kevin_spacey_base_image"
-new_image_c1.asset_image = file_name_c1
+test_file_c1, file_name_c1 = grab_test_files(new_image_c1.attachable_id)
+# new_image_c1.filename = file_name_c1
 new_image_c1.save
-new_image_c1.asset_image.store!(test_file_c1)
+new_image_c1.filename.store!(test_file_c1)
 
+c2 = Celeb.find 2
 new_image_c2 = c2.images.build
-test_file_c2, file_name_c2 = grab_test_files(new_image_c2.imageable_id)
-new_image_c2.name = "keanu_reeves_base_image"
-new_image_c2.asset_image = file_name_c2
+test_file_c2, file_name_c2 = grab_test_files(new_image_c2.attachable_id)
+# new_image_c2.filename = file_name_c2
 new_image_c2.save
-new_image_c2.asset_image.store!(test_file_c2)
+new_image_c2.filename.store!(test_file_c2)
 
+c3 = Celeb.find 3
 new_image_c3 = c3.images.build
-test_file_c3, file_name_c3 = grab_test_files(new_image_c3.imageable_id)
-new_image_c3.name = "bob_marley_base_image"
-new_image_c3.asset_image = file_name_c3
+test_file_c3, file_name_c3 = grab_test_files(new_image_c3.attachable_id)
+# new_image_c3.filename = file_name_c3
 new_image_c3.save
-new_image_c3.asset_image.store!(test_file_c3)
+new_image_c3.filename.store!(test_file_c3)
 
+t1 = Title.find 1
 new_image_t1 = t1.images.build
-test_file_t1, file_name_t1 = grab_test_files(new_image_t1.imageable_id + 3)
-new_image_t1.name = "breaking_bad_base_image"
-new_image_t1.asset_image = file_name_t1
+test_file_t1, file_name_t1 = grab_test_files(new_image_t1.attachable_id + 3)#this suuuucks!
+# new_image_t1.filename = file_name_t1
 new_image_t1.save
-new_image_t1.asset_image.store!(test_file_t1)
+new_image_t1.filename.store!(test_file_t1)
 
+t2 = Title.find 2
 new_image_t2 = t2.images.build
-test_file_t2, file_name_t2 = grab_test_files(new_image_t2.imageable_id + 3)
-new_image_t2.name = "emmanuelle_base_image"
-new_image_t2.asset_image = file_name_t2
+test_file_t2, file_name_t2 = grab_test_files(new_image_t2.attachable_id + 3)
+# new_image_t2.filename = file_name_t2
 new_image_t2.save
-new_image_t2.asset_image.store!(test_file_t2)
+new_image_t2.filename.store!(test_file_t2)
 
+t3 = Title.find 3
 new_image_t3 = t3.images.build
-test_file_t3, file_name_t3 = grab_test_files(new_image_t3.imageable_id + 3)
-new_image_t3.name = "game_of_thrones_base_image"
-new_image_t3.asset_image = file_name_t3
+test_file_t3, file_name_t3 = grab_test_files(new_image_t3.attachable_id + 3)
+# new_image_t3.filename = file_name_t3
 new_image_t3.save
-new_image_t3.asset_image.store!(test_file_t3)
+new_image_t3.filename.store!(test_file_t3)
 
 i1 = Image.find 1
 i2 = Image.find 2
