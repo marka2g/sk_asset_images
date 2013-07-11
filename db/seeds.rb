@@ -1,5 +1,4 @@
 # setup - refactor/cleanup, yuk!
-# issue - filename on image is not saving, it is thru an carrierwave upload tho...
 def grab_test_files(id)
 	path = "#{Rails.root.join('public/test_images')}/#{id}/"
 	file_name = Dir.entries("#{path}").last
@@ -43,21 +42,21 @@ c3.save!
 
 t1 = Title.where(name: "Breaking Bad").first
 new_image_t1 = Image.create!(attachable_id: t1.id, attachable_type: t1.class.name)
-test_file_t1 = grab_test_files(new_image_t1.attachable_id)
+test_file_t1 = grab_test_files(new_image_t1.attachable_id + 3) # + 3, lame...
 new_image_t1.filename.store!(test_file_t1)
 t1.images << new_image_t1
 t1.save!
 
 t2 = Title.where(name: "Emmanuelle").first
 new_image_t2 = Image.create!(attachable_id: t2.id, attachable_type: t2.class.name)
-test_file_t2 = grab_test_files(new_image_t2.attachable_id)
+test_file_t2 = grab_test_files(new_image_t2.attachable_id + 3)
 new_image_t2.filename.store!(test_file_t2)
 t2.images << new_image_t2
 t2.save!
 
 t3 = Title.where(name: "Game of Thrones").first
 new_image_t3 = Image.create!(attachable_id: t3.id, attachable_type: t3.class.name)
-test_file_t3 = grab_test_files(new_image_t3.attachable_id)
+test_file_t3 = grab_test_files(new_image_t3.attachable_id + 3)
 new_image_t3.filename.store!(test_file_t3)
 t3.images << new_image_t3
 t3.save!
