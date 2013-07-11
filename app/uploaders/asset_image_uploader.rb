@@ -4,12 +4,24 @@ class AssetImageUploader < CarrierWave::Uploader::Base
   storage :file
 
   def store_dir
+# binding.pry
    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
   ImageType.all.each do |type|
     version type.name.to_sym do
       process :resize_to_fill => [type.crop_x, type.crop_y]
+      # process :store_geometry
+    end
+  end
+
+  def store_geometry
+    if @file
+      img = ::Magick::Image::read(@file.file).first
+      if model
+        model.width = img.columns
+        model.height = img.rows
+      end
     end
   end
 
