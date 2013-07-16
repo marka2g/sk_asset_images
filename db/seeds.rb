@@ -20,14 +20,6 @@ Title.create(name: 'Breaking Bad')
 Title.create(name: 'Emmanuelle')
 Title.create(name: 'Game of Thrones')
 
-
-def grab_test_file(id)
-  path = "#{Rails.root.join('public/test_images')}/#{id}/"
-  file_name = Dir.entries("#{path}").last
-  the_file = File.open(path + file_name)
-  the_file
-end
-
 c1 = Celeb.where(name: "Kevin Spacey").first
 # first, add the original and thumb image_types...
 its = ImageType.where(name: ['original','thumb'])
