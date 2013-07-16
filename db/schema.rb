@@ -21,6 +21,11 @@ ActiveRecord::Schema.define(:version => 20130613195208) do
 
   add_index "celebs", ["name"], :name => "index_celebs_on_name", :unique => true
 
+  create_table "celebs_image_types", :id => false, :force => true do |t|
+    t.integer "celeb_id"
+    t.integer "image_type_id"
+  end
+
   create_table "image_types", :force => true do |t|
     t.string   "name"
     t.integer  "crop_x"
@@ -39,13 +44,6 @@ ActiveRecord::Schema.define(:version => 20130613195208) do
 
   add_index "images", ["attachable_id", "attachable_type"], :name => "index_images_on_attachable_id_and_attachable_type"
 
-  create_table "processed_images", :force => true do |t|
-    t.integer  "image_id"
-    t.integer  "image_type_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
   create_table "titles", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
@@ -53,5 +51,10 @@ ActiveRecord::Schema.define(:version => 20130613195208) do
   end
 
   add_index "titles", ["name"], :name => "index_titles_on_name", :unique => true
+
+  create_table "titles_image_types", :id => false, :force => true do |t|
+    t.integer "title_id"
+    t.integer "image_type_id"
+  end
 
 end
