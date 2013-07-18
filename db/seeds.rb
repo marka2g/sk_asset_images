@@ -14,7 +14,6 @@ end
 # c1.images << new_image_c1
 # c1.save!
 
-
 ImageType.create(name: 'biopic', crop_x: 144, crop_y: 200)
 ImageType.create(name: 'headshot', crop_x: 75, crop_y: 85)
 ImageType.create(name: 'boxcover', crop_x: 144, crop_y: 200)

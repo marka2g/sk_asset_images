@@ -10,28 +10,28 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # wkg...
   # ImageType.all.each do |type|
-  #   version type.name.to_sym, :if => "has_#{type.name}_size?"
+  #   version type.name.to_sym, :if => "has_#{type.name}?"
   # end
 
   # conditional processing: e.g. we process "thumb" version only if
   # it was defined in image_types
-  version :thumb, :if => :has_thumb_size? do
+  version :thumb, :if => :has_thumb? do
     process :dynamic_resize_to_fit => :thumb
   end
 
-  version :headshot, :if => :has_headshot_size? do
+  version :headshot, :if => :has_headshot? do
     process :dynamic_resize_to_fit => :headshot
   end
 
-  version :biopic, :if => :has_biopic_size? do
+  version :biopic, :if => :has_biopic? do
     process :dynamic_resize_to_fit => :biopic
   end
 
-  version :boxcover, :if => :has_boxcover_size? do
+  version :boxcover, :if => :has_boxcover? do
     process :dynamic_resize_to_fit => :boxcover
   end
 
-  version :promo, :if => :has_promo_size? do
+  version :promo, :if => :has_promo? do
     process :dynamic_resize_to_fit => :promo
   end
 
@@ -42,7 +42,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   def method_missing(method, *args)
     # if a method(has_blah_size?) with name is missed, it should return false
-    return false if method.to_s.match(/has_(.*)_size\?/)
+    return false if method.to_s.match(/has_(.*)\?/)
     super
   end
 
@@ -51,7 +51,7 @@ protected
   def setup_available_image_types(file)
     model.attachable.image_types.each do |type|
       self.class_eval do
-        define_method("has_#{type.name.to_sym}_size?".to_sym) { true }
+        define_method("has_#{type.name.to_sym}?".to_sym) { true }
       end
     end
   end
