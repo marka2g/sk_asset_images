@@ -6,12 +6,12 @@ def grab_test_file(id)
   the_file
 end
 
-# c1 = Celeb.where(name: "Kevin Spacey").first
-# new_image_c1 = Image.create!(attachable_id: c1.id, attachable_type: c1.class.name)
-# test_file_c1 = grab_test_file(new_image_c1.attachable_id)
-# new_image_c1.name.store!(test_file_c1)
-# c1.images << new_image_c1
-# c1.save!
+c1 = Celeb.where(name: "Kevin Spacey").first
+new_image_c1 = Image.create!(attachable_id: c1.id, attachable_type: c1.class.name)
+test_file_c1 = grab_test_file(new_image_c1.attachable_id)
+new_image_c1.name.store!(test_file_c1)
+c1.images << new_image_c1
+c1.save!
 
 
 ImageType.create(name: 'biopic', crop_x: 144, crop_y: 200)
