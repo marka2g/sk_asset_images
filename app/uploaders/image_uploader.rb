@@ -52,7 +52,7 @@ protected
     model.attachable.image_types.each do |type|
       self.class_eval do
         define_method("has_#{type.name.to_sym}?".to_sym) do |file|
-          [true, file]
+          true
         end
       end
     end
