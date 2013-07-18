@@ -8,7 +8,7 @@ class ImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  # wkg...
+  # wkg... to do; get this working
   # ImageType.all.each do |type|
   #   version type.name.to_sym, :if => "has_#{type.name}?"
   # end

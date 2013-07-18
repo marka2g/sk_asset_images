@@ -5,10 +5,4 @@ class Image < ActiveRecord::Base
 
   mount_uploader :name, ImageUploader
   # validates_processing_of :name
-
-  def image_types
-    klass = self.attachable_type.constantize
-    klass.find self.attachable_id.image_types
-  end
-
 end

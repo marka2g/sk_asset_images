@@ -1,6 +1,6 @@
 class Celeb < ActiveRecord::Base
   attr_accessible :name, :images_attributes
-  attr_accessor :filename, :file
+  attr_accessor :file
   has_many :images, as: :attachable
   has_and_belongs_to_many :image_types
 
