@@ -6,20 +6,11 @@ def grab_test_file(id)
   the_file
 end
 
-# my test
-# c1 = Celeb.where(name: "Kevin Spacey").first
-# new_image_c1 = Image.create!(attachable_id: c1.id, attachable_type: c1.class.name)
-# test_file_c1 = grab_test_file(new_image_c1.attachable_id)
-# new_image_c1.name.store!(test_file_c1)
-# c1.images << new_image_c1
-# c1.save!
-
 ImageType.create(name: 'biopic', crop_x: 144, crop_y: 200)
 ImageType.create(name: 'headshot', crop_x: 75, crop_y: 85)
 ImageType.create(name: 'boxcover', crop_x: 144, crop_y: 200)
 ImageType.create(name: 'promo', crop_x: 300, crop_y: 200)
 ImageType.create(name: 'thumb', crop_x: 100, crop_y: 100)
-ImageType.create(name: 'original')
 
 Celeb.create(name: 'Kevin Spacey')
 Celeb.create(name: 'Keanu Reeves')

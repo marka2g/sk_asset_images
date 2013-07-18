@@ -51,7 +51,9 @@ protected
   def setup_available_image_types(file)
     model.attachable.image_types.each do |type|
       self.class_eval do
-        define_method("has_#{type.name.to_sym}?".to_sym) { true }
+        define_method("has_#{type.name.to_sym}?".to_sym) do |file|
+          [true, file]
+        end
       end
     end
   end
