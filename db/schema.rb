@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(:version => 20130613195208) do
   end
 
   create_table "images", :force => true do |t|
-    t.string   "filename"
+    t.string   "name"
     t.integer  "attachable_id"
     t.string   "attachable_type"
     t.datetime "created_at",      :null => false
