@@ -60,7 +60,7 @@ protected
 
   # this is used for method_missing
   def setup_image_types_hash(file)
-    @image_sizes = Hash.new(0)
+    @image_sizes = {}
     model.attachable.image_types.each do |type|
        @image_sizes.merge!(type.name.to_sym => [type.crop_x, type.crop_y])
     end
