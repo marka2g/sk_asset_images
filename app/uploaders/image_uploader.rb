@@ -1,9 +1,8 @@
 class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
 
-  # before :cache, :setup_available_sizes
   before :cache, :setup_available_image_types
-  before :cache, :setup_sizes_hash
+  before :cache, :setup_image_types_hash
 
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
@@ -42,16 +41,14 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def method_missing(method, *args)
-    # if a method with name is missed, it should return false
+    # if a method(has_blah_size?) with name is missed, it should return false
     return false if method.to_s.match(/has_(.*)_size\?/)
     super
   end
 
 protected
 
-  def setup_available_sizes(file)
-    # names = model.attachable.image_types.collect(&:name)
-    # names.each.to_sym
+  def setup_available_image_types(file)
     model.attachable.image_types.each do |type|
       self.class_eval do
         define_method("has_#{type.name.to_sym}_size?".to_sym) { true }
@@ -60,7 +57,7 @@ protected
   end
 
   # this is used for method_missing
-  def setup_sizes_hash(file)
+  def setup_image_types_hash(file)
     @image_sizes = Hash.new(0)
     model.attachable.image_types.each do |type|
        @image_sizes.merge!(type.name.to_sym => [type.crop_x, type.crop_y])
