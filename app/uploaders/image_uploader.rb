@@ -14,13 +14,12 @@ class ImageUploader < CarrierWave::Uploader::Base
     end
   end
 
-  # a wrapper to resize_to_fill method
   def dynamic_resize_to_fit(size)
     resize_to_fill *(@image_sizes[size]) if @image_sizes[size]
   end
 
   def method_missing(method, *args)
-    # if a method(has_blah_size?) with name is missed, it should return false
+    # if a method(has_blah?) with name is missed, it should return false
     return false if method.to_s.match(/has_(.*)\?/)
     super
   end
