@@ -35,7 +35,7 @@ class TitlesController < ApplicationController
 
   def update
     @title = Title.find(params[:id])
-binding.pry
+# binding.pry
     if @title.update_attributes(params[:title])
       redirect_to @title, notice: "Successfully updated the title."
       # if params[:title][:image].present?
