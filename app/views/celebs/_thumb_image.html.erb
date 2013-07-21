@@ -6,13 +6,13 @@
 					<ul>
 						<li class="no-bullet">
 						<% celeb.images.each do |i| %>
-							<% i.image_types.each do |t| %>
+							<%# i.image_types.each do |t| %>
 							<div id="model_images">
-								<%= link_to image_tag(i.filename.url(:thumb)), celeb_path(celeb) %><br/>
-								<%= link_to 'edit', edit_celeb_path(celeb) %>
+								<%#= link_to image_tag(i.filename.url(:thumb)), celeb_path(celeb) %><br/>
+								<%#= link_to 'edit', edit_celeb_path(celeb) %>
 								<!-- <span><%#= t.name.humanize %> | <%#= t.crop_x %> X <%#= t.crop_y %></span> -->
 							</div>
-							<% end %>
+							<%# end %>
 						<% end %>
 					</li>
 				</ul>
