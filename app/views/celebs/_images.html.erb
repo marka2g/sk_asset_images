@@ -2,34 +2,32 @@
 	<ul class="image_list_item">
 		<div id="image_list_container">
 			<li>
-				<h4><%= img.filename %></h4>
+				<h4><%= img.name %></h4>
 					<ul>
 						<li class="no-bullet">
-							<% img.image_types.each do |t| %>
 							<div id="model_images">
-								<div class="thumb">
-									<h4>Thumbnail</h4>
-									<%= link_to image_tag(img.filename.url(:thumb)), celeb_path(@celeb) %><br/>
-								</div>
-								<div class="biopic">
-									<h4>Biopic</h4>
-									<%= link_to image_tag(img.filename.url(:biopic)), celeb_path(@celeb) %><br/>
-								</div>
-								<div class="headshot">
-									<h4>Headshot</h4>
-									<%= link_to image_tag(img.filename.url(:headshot)), celeb_path(@celeb) %><br/>
-								</div>
-								<div class="boxcover">
-									<h4>Boxcover</h4>
-									<%= link_to image_tag(img.filename.url(:boxcover)), celeb_path(@celeb) %><br/>
-								</div>
-								<div class="promo">
-									<h4>Promo</h4>
-									<%= link_to image_tag(img.filename.url(:promo)), celeb_path(@celeb) %><br/>
-								</div>
-								<%= link_to 'edit', edit_celeb_path(@celeb) %>
+							<div class="thumb">
+								<h4>Thumbnail</h4>
+								<%= link_to image_tag(img.name.url(:thumb)), celeb_path(@celeb) %><br/>
 							</div>
-						<% end %>
+							<div class="biopic">
+								<h4>Biopic</h4>
+								<%= link_to image_tag(img.name.url(:biopic)), celeb_path(@celeb) %><br/>
+							</div>
+							<div class="headshot">
+								<h4>Headshot</h4>
+								<%= link_to image_tag(img.name.url(:headshot)), celeb_path(@celeb) %><br/>
+							</div>
+							<div class="boxcover">
+								<h4>Boxcover</h4>
+								<%= link_to image_tag(img.name.url(:boxcover)), celeb_path(@celeb) %><br/>
+							</div>
+							<div class="promo">
+								<h4>Promo</h4>
+								<%= link_to image_tag(img.name.url(:promo)), celeb_path(@celeb) %><br/>
+							</div>
+							<%= link_to 'edit', edit_celeb_path(@celeb) %>
+						</div>
 					</li>
 				</ul>
 			</li>
