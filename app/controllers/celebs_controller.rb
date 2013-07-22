@@ -38,7 +38,7 @@ class CelebsController < ApplicationController
     @celeb = Celeb.find(params[:id])
     if @celeb.update_attributes(params[:celeb])
       redirect_to @celeb, notice: "Successfully updated the celeb."
-binding.pry
+# binding.pry
       if params[:celeb][:image].present?
         render :crop
       else
