@@ -16,18 +16,18 @@
     <%= f.fields_for :images do |ff| %>
       <%= ff.fields_for :image_type do |fff| %>
       <fieldset>
-        <%= ff.label :filename, "Image Name" %><br/>
-        <%= ff.text_field :filename %>
+        <%= ff.label :name, "Image Name" %><br/>
+        <%= ff.text_field :name %>
         <h5>Image Type: <%#= @title.images.first.image_types.first.name %></h5>
         <div class="thumb_image_container">
           <% @title.images.each do |ai| %>
-            <%= fff.label :name, @title.images.first.filename %>
-            <%= link_to image_tag(ai.filename.url(:thumb)), edit_title_path(@title) %>
+            <%= fff.label :name, @title.images.first.name %>
+            <%= link_to image_tag(ai.name.url(:thumb)), edit_title_path(@title) %>
             <%= link_to 'edit', edit_title_path(@title) %>
           <% end %>
         </div>
-        <%= ff.label :filename, "Upload New Title Image" %><br/>
-        <%= ff.file_field :filename %>
+        <%= ff.label :name, "Upload New Title Image" %><br/>
+        <%= ff.file_field :name %>
         <fieldset>
             <h4>Image Type</h4>
             <%#= ff.fields_for :image_type do |fff| %>

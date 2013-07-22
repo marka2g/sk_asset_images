@@ -2,8 +2,8 @@
 	<ul class="image_list_item">
 		<div id="image_list_container">
 			<li>
-				<h4><%= image.filename %></h4>
-				<%= link_to image_tag(image.filename.url(:thumb)), edit_image_path(image) %>
+				<h4><%= image.name %></h4>
+				<%= link_to image_tag(image.name.url(:thumb)), edit_image_path(image) %>
 				<%= link_to 'edit', edit_image_path(image) %>
 			</li>
 		</div>
