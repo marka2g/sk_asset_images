@@ -21,23 +21,33 @@
         <div class="thumb_image_container">
           <% @celeb.images.each do |img| %>
             <%= fff.label :name %>
-            <%= link_to image_tag(img.name.url(:thumb)), edit_celeb_path(@celeb) %>
+            <%#= link_to image_tag(img.name.url(:thumb)), edit_celeb_path(@celeb) %>
             <%= link_to 'edit', edit_celeb_path(@celeb) %>
-          <% end %>
+
         </div>
         <div>
           <%= ff.label :name, "Upload New Celeb Image" %><br/>
           <%= ff.file_field :name %>
         </div>
         <fieldset>
-            <h4>Image Type</h4>
-            <%#= fff.label :name, "Image Type" %>
-            <%#= fff.text_field :name %>
-            <%#= fff.label :crop_x %>
-            <%#= fff.text_field :crop_x %>
-            <%#= fff.label :crop_y %>
-            <%#= fff.text_field :crop_y %>
+            <!-- <h4>Image Type</h4> -->
+            <h1>Crop & Set Image Type</h1>
+            <%= link_to image_tag(img.name), id: "cropbox" %>
+            <h4>Preview</h4>
+            <div style="width:100px; height:100px; overflow:hidden">
+              <%= image_tag (img.name), :id => "preview" %>
+            </div>
+
+            <%= form_for @image_type  do |f| %>
+              <% %w[x y].each do |attribute| %>
+                <%= f.hidden_field "crop_#{attribute}" %>
+              <% end %>
+              <div class="actions">
+                <%= f.submit "Crop" %>
+              </div>
+            <% end %>
           <% end %>
+        <% end %>
         </fieldset>
       </fieldset>
 
