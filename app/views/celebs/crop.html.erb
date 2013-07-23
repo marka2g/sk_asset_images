@@ -1,0 +1,13 @@
+<h1>Crop & Set Image Type</h1>
+<%= image_tag @celeb.images.first.name, id: "cropbox" %>
+
+<h4>Preview</h4>
+<div style="width:100px; height:100px; overflow:hidden">
+  <%= image_tag @celeb.images.first.name, :id => "preview" %>
+</div>
+
+<%= form_for @celeb.images.first do |f| %>
+  <% %w[x y w h].each do |attribute| %>
+    <%= f.hidden_field "crop_#{attribute}" %>
+  <% end %>
+<% end %>

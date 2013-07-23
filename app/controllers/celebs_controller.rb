@@ -31,15 +31,14 @@ class CelebsController < ApplicationController
 
   def edit
     @celeb = Celeb.find(params[:id])
-    @image_type = ImageType.new
   end
 
   def update
     @celeb = Celeb.find(params[:id])
     if @celeb.update_attributes(params[:celeb])
-      redirect_to @celeb, notice: "Successfully updated the celeb."
-# binding.pry
-      if params[:celeb][:image].present?
+      # redirect_to @celeb, notice: "Successfully updated the celeb."
+      if params[:celeb][:name].present?
+        # @image_type = ImageType.new
         render :crop
       else
         redirect_to @celeb, notice: "Successfully updated celeb."

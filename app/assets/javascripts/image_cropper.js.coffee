@@ -13,10 +13,10 @@ class ImageCropper
       onChange: @update
 
   update: (coords) =>
-    $('#image_crop_x').val(coords.x)
-    $('#image_crop_y').val(coords.y)
-    $('#image_crop_w').val(coords.w)
-    $('#image_crop_h').val(coords.h)
+    $('#image_type_crop_x').val(coords.x)
+    $('#image_type_crop_y').val(coords.y)
+    $('#image_type_crop_w').val(coords.w)
+    $('#image_type_crop_h').val(coords.h)
     @updatePreview(coords)
 
   updatePreview: (coords) =>

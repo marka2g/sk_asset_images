@@ -32,20 +32,10 @@
         <fieldset>
             <!-- <h4>Image Type</h4> -->
             <h1>Crop & Set Image Type</h1>
-            <%= link_to image_tag(img.name), id: "cropbox" %>
-            <h4>Preview</h4>
-            <div style="width:100px; height:100px; overflow:hidden">
-              <%= image_tag (img.name), :id => "preview" %>
+            <%#= link_to image_tag(img.name), id: "cropbox" %>
+            <%= image_tag(img.name) %>
             </div>
 
-            <%= form_for @image_type  do |f| %>
-              <% %w[x y].each do |attribute| %>
-                <%= f.hidden_field "crop_#{attribute}" %>
-              <% end %>
-              <div class="actions">
-                <%= f.submit "Crop" %>
-              </div>
-            <% end %>
           <% end %>
         <% end %>
         </fieldset>
